@@ -2,7 +2,9 @@
 #
 # Scrape SFO occupancy from Weiner's page and make an rrd plot
 #
-
+# Create the RRD file with:
+# rrdtool create sfo.rrd --step 600 DS:sfoused:GAUGE:3600:U:U RRA:AVERAGE:0.5:1:87600
+#
 PNG=/afs/cern.ch/user/d/dcameron/www/dev/hi_2018/sfo-usage.png
 RRDFILE=/home/dcameron/dev/ddm/hicharts/sfo.rrd
 
