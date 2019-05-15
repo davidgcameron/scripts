@@ -5,9 +5,10 @@ set -x
 
 dbpass=$1
 today=`date +%Y%m%d`
-dumpurl=https://rucio-hadoop.cern.ch/repl_factor?date=${today}
+todaydump=`date +%Y-%m-%d`
+dumpurl=https://rucio-hadoop.cern.ch/repl_factor?date=${todaydump}
 dump=/home/dcameron/tmp/dump-${today}
-table=dumpx_${today}
+table=dump_${today}
 
 wget -O ${dump} ${dumpurl}
 
