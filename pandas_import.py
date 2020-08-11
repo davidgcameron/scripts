@@ -50,7 +50,7 @@ def run_import(filename):
     df = pd.read_table(filename, names=headers)
     
     # remove sub datasets
-    df[~df['name'].str.contains('_sub')]
+    df = df[~df['name'].str.contains('_sub')]
 
     # extract tid
     df['tid'] = pd.to_numeric(df['name'].str.split('tid', expand=True)[1].str.split('_', expand=True)[0], errors='coerce')
