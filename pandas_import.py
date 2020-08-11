@@ -62,6 +62,9 @@ def run_import(filename):
     df['prim_bytes'] = df['prim_t0_bytes'] + df['prim_t1_bytes'] + df['prim_t2_bytes']
     df['sec_bytes'] = df['secs_t0_bytes'] + df['secs_t1_bytes'] + df['secs_t2_bytes']
     df['tape_bytes'] = df['tape_t0_bytes'] + df['tape_t1_bytes']
+    df['prim_bytes_tb'] = df['prim_bytes']/1000/1000/1000/1000
+    df['sec_bytes_tb'] = df['sec_bytes']/1000/1000/1000/1000
+    df['tape_bytes_tb'] = df['tape_bytes']/1000/1000/1000/1000
     df['prim_repl_factor'] = df['prim_repl_factor_t0'] + df['prim_repl_factor_t1'] + df['prim_repl_factor_t2']
     df['sec_repl_factor'] = df['secs_repl_factor_t0'] + df['secs_repl_factor_t1'] + df['secs_repl_factor_t2']
     df['tape_repl_factor'] = df['tape_repl_factor_t0'] + df['tape_repl_factor_t1']
