@@ -47,7 +47,16 @@ def run_import(filename):
     "events",
     ]
 
-    df = pd.read_table(filename, names=headers)
+    dtypes = {'scope': 'string',
+              'name': 'string',
+              'datatype': 'string',
+              'prod_step': 'string',
+              'project': 'string',
+              'stream_name': 'string',
+              'version': 'string',
+              'campaign': 'string'}
+
+    df = pd.read_csv(filename, sep='\t', names=headers, dtype=dtypes)
     
     # remove sub datasets
     df = df[~df['name'].str.contains('_sub')]
