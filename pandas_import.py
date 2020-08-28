@@ -47,14 +47,14 @@ def run_import(filename):
     "events",
     ]
 
-    dtypes = {'scope': 'string',
-              'name': 'string',
-              'datatype': 'string',
-              'prod_step': 'string',
-              'project': 'string',
-              'stream_name': 'string',
-              'version': 'string',
-              'campaign': 'string'}
+    dtypes = {'scope': 'str',
+              'name': 'str',
+              'datatype': 'str',
+              'prod_step': 'str',
+              'project': 'str',
+              'stream_name': 'str',
+              'version': 'str',
+              'campaign': 'str'}
 
     df = pd.read_csv(filename, sep='\t', names=headers, dtype=dtypes)
     
