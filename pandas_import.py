@@ -108,6 +108,8 @@ def run_import(filename):
     df['tape_repl_factor'] = df['tape_repl_factor_t0'] + df['tape_repl_factor_t1']
     df['tbytes'] = df['bytes']/1000/1000/1000/1000
     df['avg_bytes'] = df['bytes']/df['length']
+    df['access_time'] = pd.to_datetime(df.accessed_at, unit='ms')
+    df['creation_time'] = pd.to_datetime(df.created_at, unit='ms')
 
     return df
 
