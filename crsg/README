@@ -19,7 +19,7 @@ python summary.py results-2021/computingsites.csv 0.25
 
 Script currently excludes Vega from T2s and adds it to HPC_special
 
-cloud_special resources (BOINC) are removed from T1 and T2 numbers
+T0, T1 and T2 numbers are from resource types GRID, cloud and hpc
 
 For T0 the central services numbers should be added (89 kHS06 in 2021)
 

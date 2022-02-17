@@ -4,7 +4,6 @@ import pandas as pd
 central_services = 89.85
 csv = sys.argv[1]
 fraction_of_year = float(sys.argv[2]) if len(sys.argv) > 2 else 1
-resource_type = sys.argv[3] if len(sys.argv) > 3 else None
 
 df = pd.read_csv(sys.argv[1])
 df['khs06y'] = df['sum_hs06sec']/86400/365/1000/fraction_of_year
@@ -14,6 +13,7 @@ print('Vega')
 dfv = df[df.site == 'Vega'][['sum_cpuconsumptiontime', 'sum_walltime', 'khs06y']]
 print(dfv.sum())
 
+print()
 print('Sim@P1')
 
 dfp1 = df[df.site == 'CERN-P1'][['sum_cpuconsumptiontime', 'sum_walltime', 'khs06y']]
