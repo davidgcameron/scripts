@@ -4,6 +4,8 @@ python3 -mvenv crsg-env
 source crsg-env/bin/activate
 pip install pandas requests
 
+Edit crsg.py to add the Grafana access token, which can be found at https://gitlab.cern.ch/atlas-adc-monitoring/grafana-api/-/blob/master/Examples/CRSG%20report/Scripts/crsg.py
+
 Get data from grafana
 Note that the dates are inclusive
 
