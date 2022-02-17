@@ -7,15 +7,15 @@ pip install pandas requests
 Get data from grafana (make the results dir first!)
 Note that the dates are inclusive
 
-python crsg.py -f 2021-01-01 -t 2021-12-31 -o results-2021
+python3 crsg.py -f 2021-01-01 -t 2021-12-31 -o results-2021
 
 Run the summary script
 
-python summary.py results-2021/computingsites.csv
+python3 summary.py results-2021/computingsites.csv
 
 Get normalised kHS06y numbers for partial years, eg if using three months:
 
-python summary.py results-2021/computingsites.csv 0.25
+python3 summary.py results-2021/computingsites.csv 0.25
 
 Script currently excludes Vega from T2s and adds it to HPC_special
 
