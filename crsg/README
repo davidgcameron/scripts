@@ -4,7 +4,7 @@ python3 -mvenv crsg-env
 source crsg-env/bin/activate
 pip install pandas requests
 
-Get data from grafana (make the results dir first!)
+Get data from grafana
 Note that the dates are inclusive
 
 python3 crsg.py -f 2021-01-01 -t 2021-12-31 -o results-2021
