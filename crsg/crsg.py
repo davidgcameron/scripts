@@ -5,7 +5,7 @@
 import json
 import pytz
 import pandas as pd
-import sys, getopt
+import sys, getopt, os
 
 from datetime import datetime, timedelta
 from json import loads
@@ -283,7 +283,7 @@ def main(argv):
         r = CRSG()
 
         reports = r.getData(date_from, date_to, rtype)
-
+        os.makedirs(output, exist_ok=True)
         for report in reports:
             r.writerCSVeport(reports[report], output, report)
         print("completed")
