@@ -31,6 +31,8 @@ dfr = df[['sum_walltime', 'sum_cpuconsumptiontime', 'khs06y', 'resourcetype']].g
 dfr['eff'] = dfr['sum_cpuconsumptiontime']/dfr['sum_walltime']
 
 print(dfr)
+print()
+print('Tiers')
 
 # Remove Vega from T2s
 df.loc[df['site'] == 'Vega', 'tier'] = -1
