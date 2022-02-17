@@ -5,6 +5,7 @@
 
 import pandas as pd
 import numpy as np
+import dask.dataframe as dd
 
 def run_import(filename):
 
@@ -75,10 +76,19 @@ def run_import(filename):
               'version': 'str',
               'campaign': 'str'}
 
-    df = pd.read_csv(filename, sep='\t', names=headers, dtype=dtypes)
-    
+    # Lazy read to reduce memory consumption
+    df = dd.read_csv(filename, sep='\t', names=headers, dtype=dtypes, assume_missing=True)
+ 
+    # remove test and user/group datasets
+    df = df[~df['scope'].str.contains('tests')]
+    df = df[~df['scope'].str.contains('user.')]
+    df = df[~df['scope'].str.contains('group.')]
+
     # remove sub datasets
     df = df[~df['name'].str.contains('_sub')]
+
+    # convert to pandas df
+    df = df.compute()
 
     # extract tid
     df['tid'] = pd.to_numeric(df['name'].str.split('tid', expand=True)[1].str.split('_', expand=True)[0], errors='coerce')
@@ -98,6 +108,8 @@ def run_import(filename):
     df['tape_repl_factor'] = df['tape_repl_factor_t0'] + df['tape_repl_factor_t1']
     df['tbytes'] = df['bytes']/1000/1000/1000/1000
     df['avg_bytes'] = df['bytes']/df['length']
+    df['access_time'] = pd.to_datetime(df.accessed_at, unit='ms')
+    df['creation_time'] = pd.to_datetime(df.created_at, unit='ms')
 
     return df
 
