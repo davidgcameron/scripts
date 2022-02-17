@@ -14,10 +14,11 @@ from requests import post
 
 class CRSG:
     def __init__(self):
+        # Fill in the missing token by checking original source file (linked above)
         self.headers = {
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJrIjoiSDlWbXZQRzFadzk3ZFphdjcwTk9KOFhKcDluWDMxYWQiLCJuIjoidG1wX3Nhc2hhIiwiaWQiOjE3fQ=="
+            "Authorization": "FIX ME !!!"
         }
 
     def getData(self, date_from, date_to, rtype):
