@@ -1,6 +1,8 @@
 # Script written by Aleksandr Alekseev
 # Original source https://gitlab.cern.ch/atlas-adc-monitoring/grafana-api/-/blob/master/Examples/CRSG%20report/Scripts/crsg.py
 #
+# Before using, add the grafana access token below (where is says FIX ME)
+# The token can be found at the above location
 
 import json
 import pytz
