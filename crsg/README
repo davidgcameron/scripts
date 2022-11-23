@@ -1,3 +1,6 @@
+Tools to generate summary numbers for C-RSG reports and computing acknowledgements.
+They pull info from Grafana and manipulate the data with pandas.
+
 Set up env:
 
 python3 -mvenv crsg-env
@@ -10,6 +13,9 @@ Get data from grafana
 Note that the dates are inclusive
 
 python3 crsg.py -f 2021-01-01 -t 2021-12-31 -o results-2021
+
+For C-RSG:
+----------
 
 Run the summary script
 
@@ -24,4 +30,11 @@ Script currently excludes Vega from T2s and adds it to HPC_special
 T0, T1 and T2 numbers are from resource types GRID, cloud and hpc
 
 For T0 the central services numbers should be added (89 kHS06 in 2021)
+
+For computing acknowledgements:
+-------------------------------
+
+python3 ack.py results-2021/computingsites.csv
+
+The limits for wallclock and efficiency are set in ack.py
 
