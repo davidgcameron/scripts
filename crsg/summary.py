@@ -25,9 +25,9 @@ print()
 print('Resource types')
 
 # Add Vega to HPC_special
-df.loc[df['site'] == 'Vega', 'resourcetype'] = 'hpc_special'
+#df.loc[df['site'] == 'Vega', 'resourcetype'] = 'hpc_special'
 
-dfr = df[['sum_walltime', 'sum_cpuconsumptiontime', 'khs06y', 'resourcetype']].groupby('resourcetype').sum()
+dfr = df[['sum_walltime', 'sum_cpuconsumptiontime', 'khs06y', 'resourcetype', 'tier']].groupby(['resourcetype', 'tier']).sum()
 dfr['eff'] = dfr['sum_cpuconsumptiontime']/dfr['sum_walltime']
 
 print(dfr)
