@@ -15,8 +15,7 @@ pip install pandas requests
 
 Edit crsg.py to add the Grafana access token, which can be found at https://gitlab.cern.ch/atlas-adc-monitoring/grafana-api/-/blob/master/Examples/CRSG%20report/Scripts/crsg.py
 
-Get data from grafana
-Note that the dates are inclusive
+Get data from grafana for the desired time period - note that the dates are inclusive
 
 `python3 crsg.py -f 2021-01-01 -t 2021-12-31 -o results-2021`
 
@@ -24,7 +23,7 @@ Note that the dates are inclusive
 
 The script prints a summary by tier and resource type.
 
-Run the summary script
+Run the summary script on the `computingsites.csv` file in the results directory:
 
 `python3 summary.py results-2021/computingsites.csv`
 
@@ -32,17 +31,17 @@ Get normalised kHS06y numbers for partial years, eg if using three months:
 
 `python3 summary.py results-2021/computingsites.csv 0.25`
 
-Script currently excludes Vega from T2s and adds it to HPC_special
+The script currently excludes Vega from T2s and adds it to HPC_special
 
-T0, T1 and T2 numbers are from resource types GRID, cloud and hpc
+T0, T1 and T2 numbers are from resource types GRID, cloud, Tier-0 and hpc
 
 For T0 the central services numbers should be added (89 kHS06 in 2021)
 
 ### Computing acknowledgements
 
-This script prints wallclock time and efficiency for unpledged sites.
+This script prints wallclock time (million wallclock hours) and efficiency (cpu time / wall time) for unpledged sites.
 
 `python3 ack.py results-2021/computingsites.csv`
 
-The limits for wallclock and efficiency are set in ack.py
+It also prints a table of sites over the limits for wallclock and efficiency, which are set in ack.py
 
